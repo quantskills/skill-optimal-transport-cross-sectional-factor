@@ -52,6 +52,28 @@ class TransportTests(unittest.TestCase):
         self.assertEqual({row["group"] for row in current}, {"I1", "I2"})
         self.assertTrue(all(row["transport_pressure"] is not None for row in current))
 
+    def test_industry_pressure_is_centered(self):
+        rows = [
+            {"date": "1", "symbol": "A", "industry": "I", "feature_a": 1},
+            {"date": "1", "symbol": "B", "industry": "I", "feature_a": 2},
+            {"date": "2", "symbol": "A", "industry": "I", "feature_a": 2},
+            {"date": "2", "symbol": "B", "industry": "I", "feature_a": 4},
+        ]
+        values, _ = ot.compute(rows, ["feature_a"], min_reference_dates=1, group_key="industry")
+        later = [r for r in values if r["date"] == "2"]
+        self.assertAlmostEqual(sorted(r["transport_pressure"] for r in later)[0], -sorted(r["transport_pressure"] for r in later)[-1])
+
+    def test_missing_feature_is_fail_closed(self):
+        rows = [
+            {"date": "1", "symbol": "A", "feature_a": 1},
+            {"date": "1", "symbol": "B", "feature_a": 2},
+            {"date": "2", "symbol": "A", "feature_a": 3},
+            {"date": "2", "symbol": "B", "feature_a": None},
+        ]
+        values, diagnostics = ot.compute(rows, ["feature_a"], min_reference_dates=1, view="global_cross_section")
+        self.assertEqual([r for r in values if r["date"] == "2" and r["symbol"] == "B"][0]["factor_status"], "missing_feature")
+        self.assertEqual(diagnostics[-1]["factor_status"], "available")
+
     def test_constant_reference_fails_closed(self):
         rows = [
             {"date": "2024-01-01", "symbol": "A", "feature_a": 1},
@@ -62,6 +84,11 @@ class TransportTests(unittest.TestCase):
         values, _ = ot.compute(rows, ["feature_a"], min_reference_dates=1, view="global_cross_section")
         later = [row for row in values if row["date"] == "2024-01-02"]
         self.assertTrue(all(row["transport_pressure"] is None for row in later))
+        self.assertTrue(all(row["factor_status"] == "constant_reference" for row in later))
+
+    def test_feature_weights_must_cover_every_feature(self):
+        with self.assertRaises(ValueError):
+            ot.compute([], ["feature_a", "feature_b"], feature_weights={"feature_a": 1.0})
 
 
 if __name__ == "__main__":

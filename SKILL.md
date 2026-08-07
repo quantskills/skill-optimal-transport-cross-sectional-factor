@@ -94,8 +94,8 @@ The default primary handoff uses a declared five-session open-to-open label. Ran
 
 ```bash
 python scripts/check_runtime.py
-python scripts/normalize_panel.py tests/fixtures/minimal_panel/panel.json --out /tmp/normalized.json
-python scripts/compute_1d_ot.py tests/fixtures/minimal_panel/panel.json --out /tmp/factor.json
+python scripts/normalize_panel.py tests/fixtures/minimal_panel/panel.json --feature feature_a --out /tmp/normalized.json
+python scripts/compute_1d_ot.py tests/fixtures/minimal_panel/panel.json --feature feature_a --out /tmp/factor.json
 python -m unittest discover -s tests -v
 node scripts/validate-qsh-form.mjs SKILL.md
 ```

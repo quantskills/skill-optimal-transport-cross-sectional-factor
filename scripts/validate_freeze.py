@@ -16,4 +16,4 @@ if config["reference_window"] < config["min_reference_dates"]:
     raise SystemExit("freeze blocked: reference_window must cover min_reference_dates")
 if config["view"] == "industry_neutral" and not config.get("group_column"):
     raise SystemExit("freeze blocked: industry_neutral requires group_column")
-print(json.dumps({"freeze_status": "pass", "algorithm_version": "ot1d-weighted-empirical-v1"}))
+print(json.dumps({"freeze_status": "pass", "algorithm_version": "ot1d-weighted-empirical-v2"}))

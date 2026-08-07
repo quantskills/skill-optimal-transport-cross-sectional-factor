@@ -8,6 +8,7 @@
     "group": {"type": ["string", "null"]},
     "factor_status": {"enum": ["available", "insufficient_history", "insufficient_cross_section", "missing_feature", "invalid_weight", "constant_reference"]},
     "transport_pressure": {"type": ["number", "null"]},
+    "transport_pressure_raw": {"type": ["number", "null"]},
     "w1_distance": {"type": ["number", "null" ]},
     "current_quantile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
     "reference_quantile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
