@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["date", "view", "factor_status", "w1_distance", "current_count", "reference_observation_count"],
+  "properties": {
+    "date": {"type": "string"},
+    "view": {"enum": ["industry_neutral", "global_cross_section"]},
+    "factor_status": {"type": "string"},
+    "w1_distance": {"type": ["number", "null"]},
+    "current_count": {"type": "integer", "minimum": 0},
+    "reference_observation_count": {"type": "integer", "minimum": 0},
+    "reference_start": {"type": ["string", "null"]},
+    "reference_end": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

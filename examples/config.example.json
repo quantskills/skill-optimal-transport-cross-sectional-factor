@@ -1,0 +1,10 @@
+{
+  "features": ["feature_a"],
+  "feature_weights": {"feature_a": 1.0},
+  "weight_column": "weight",
+  "group_column": "industry",
+  "reference_window": 252,
+  "min_reference_dates": 80,
+  "min_cross_section": 2,
+  "view": "industry_neutral"
+}

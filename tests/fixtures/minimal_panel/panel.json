@@ -1,0 +1,14 @@
+[
+  {"date":"2024-01-01","symbol":"A","industry":"I1","feature_a":1.0,"feature_b":10.0,"weight":1.0},
+  {"date":"2024-01-01","symbol":"B","industry":"I1","feature_a":2.0,"feature_b":20.0,"weight":1.0},
+  {"date":"2024-01-01","symbol":"C","industry":"I2","feature_a":3.0,"feature_b":30.0,"weight":1.0},
+  {"date":"2024-01-01","symbol":"D","industry":"I2","feature_a":4.0,"feature_b":40.0,"weight":1.0},
+  {"date":"2024-01-02","symbol":"A","industry":"I1","feature_a":2.0,"feature_b":11.0,"weight":1.0},
+  {"date":"2024-01-02","symbol":"B","industry":"I1","feature_a":3.0,"feature_b":21.0,"weight":1.0},
+  {"date":"2024-01-02","symbol":"C","industry":"I2","feature_a":4.0,"feature_b":31.0,"weight":1.0},
+  {"date":"2024-01-02","symbol":"D","industry":"I2","feature_a":5.0,"feature_b":41.0,"weight":1.0},
+  {"date":"2024-01-03","symbol":"A","industry":"I1","feature_a":3.0,"feature_b":12.0,"weight":1.0},
+  {"date":"2024-01-03","symbol":"B","industry":"I1","feature_a":4.0,"feature_b":22.0,"weight":1.0},
+  {"date":"2024-01-03","symbol":"C","industry":"I2","feature_a":5.0,"feature_b":32.0,"weight":1.0},
+  {"date":"2024-01-03","symbol":"D","industry":"I2","feature_a":6.0,"feature_b":42.0,"weight":1.0}
+]

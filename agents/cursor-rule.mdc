@@ -1,0 +1,13 @@
+---
+description: Load the optimal transport cross-sectional factor skill for deterministic point-in-time Wasserstein features.
+alwaysApply: false
+---
+
+# Optimal Transport Cross-Sectional Factor
+
+1. Load `.cursor/skills/optimal-transport-cross-sectional-factor/SKILL.md` as the authoritative contract.
+2. Read `references/point-in-time-reference.md`, `references/one-dimensional-ot.md`, and the relevant data and validation references.
+3. Use the deterministic scripts under `scripts/`; do not replace the declared transport calculation with a black-box model or arbitrary optimizer.
+4. Require authorization for direct `panda_data` access, external evaluation, and writes. Never handle credentials or private data.
+5. Fail closed on future-data use, missing core features, insufficient history, invalid weights, or unresolved point-in-time availability.
+6. Do not issue investment or trading instructions.

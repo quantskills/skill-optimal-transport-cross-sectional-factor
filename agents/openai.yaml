@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimal Transport Cross-Sectional Factor"
+  short_description: "Build auditable factors from point-in-time transport"
+  default_prompt: "Use $optimal-transport-cross-sectional-factor to compute a declared point-in-time cross-sectional transport factor."

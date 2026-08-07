@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["date", "symbol", "factor_status", "transport_pressure"],
+  "properties": {
+    "date": {"type": "string"},
+    "symbol": {"type": "string"},
+    "group": {"type": ["string", "null"]},
+    "factor_status": {"enum": ["available", "insufficient_history", "insufficient_cross_section", "missing_feature", "invalid_weight", "constant_reference"]},
+    "transport_pressure": {"type": ["number", "null"]},
+    "w1_distance": {"type": ["number", "null" ]},
+    "current_quantile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "reference_quantile": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "transport_target": {"type": ["number", "null"]},
+    "transport_displacement": {"type": ["number", "null"]},
+    "reference_start": {"type": ["string", "null"]},
+    "reference_end": {"type": ["string", "null"]},
+    "algorithm_version": {"type": "string"}
+  },
+  "additionalProperties": true
+}
